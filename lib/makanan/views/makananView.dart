@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_fitur/event/viewmodels/event_viewmodel.dart';
+import 'package:tugas_fitur/makanan/viewmodels/event_viewmodel.dart';
 
-class EventView extends StatefulWidget {
-  const EventView({super.key});
+class MakananView extends StatefulWidget {
+  const MakananView({super.key});
 
   @override
-  State<EventView> createState() => _EventViewState();
+  State<MakananView> createState() => _MakananViewState();
 }
 
-class _EventViewState extends State<EventView> with TickerProviderStateMixin {
+class _MakananViewState extends State<MakananView> with TickerProviderStateMixin {
   late TabController? _tabController;
-  EventVM eventVm = EventVM();
+  MakananVM makananVM = MakananVM();
   final _searchController = TextEditingController();
 
   @override
@@ -21,7 +22,7 @@ class _EventViewState extends State<EventView> with TickerProviderStateMixin {
 
   void refresh(String value) {
     setState(() {
-      eventVm.updateEvent(value);
+      makananVM.updateEvent(value);
     });
   }
 
@@ -30,7 +31,7 @@ class _EventViewState extends State<EventView> with TickerProviderStateMixin {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text("acara"),
+        title: const Text("makanan"),
       ),
       body: SingleChildScrollView(
         child: Center(
@@ -89,23 +90,23 @@ class _EventViewState extends State<EventView> with TickerProviderStateMixin {
                     height: 700,
                     width: MediaQuery.of(context).size.width,
                     child: TabBarView(controller: _tabController, children: [
-                      (eventVm.eventList.isEmpty)
+                      (makananVM.eventList.isEmpty)
                           ? Text(
                               'No Data',
                               style: TextStyle(fontSize: 16),
                             )
-                          : ((eventVm.eventListDisplay.length == 0)
+                          : ((makananVM.eventListDisplay.length == 0)
                               ? Text(
                                   '`${_searchController.text}` Tidak Ditemukan',
                                   style: TextStyle(fontSize: 20),
                                 )
                               : _tabBerlangsung(context)),
-                      (eventVm.eventList.isEmpty)
+                      (makananVM.eventList.isEmpty)
                           ? Text(
                               'No Data',
                               style: TextStyle(fontSize: 16),
                             )
-                          : ((eventVm.eventListDisplay.length == 0)
+                          : ((makananVM.eventListDisplay.length == 0)
                               ? Text(
                                   '`${_searchController.text}` Tidak Ditemukan',
                                   style: TextStyle(fontSize: 20),
@@ -131,9 +132,9 @@ class _EventViewState extends State<EventView> with TickerProviderStateMixin {
               height: 500,
               width: MediaQuery.of(context).size.width,
               child: ListView.builder(
-                itemCount: eventVm.eventListDisplay.length,
+                itemCount: makananVM.eventListDisplay.length,
                 itemBuilder: (context, index) {
-                  final event = eventVm.eventListDisplay[index];
+                  final event = makananVM.eventListDisplay[index];
                   return Column(
                     children: [
                       GestureDetector(

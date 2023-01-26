@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_fitur/event/views/eventView.dart';
+import 'package:tugas_fitur/makanan/views/makananView.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,16 +57,20 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            ElevatedButton(
+              onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context) => MakananView()));}, 
+            child: Text("makanan"))
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (){
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventView()));;
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventView()));
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), 
+      
     );
   }
 }

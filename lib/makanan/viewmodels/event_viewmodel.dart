@@ -1,10 +1,10 @@
 import 'package:tugas_fitur/event/models/event.dart';
 
-class EventVM {
+class MakananVM {
   List<Event> get eventList => _eventList;
   static final List<Event> _eventList = [
     Event(
-        name: "Festival bogor",
+        name: "Gulai Ayam",
         startDate: "22 Nov 2022",
         endDate: "15 Jan 2022",
         location: "Bogor",
@@ -12,7 +12,7 @@ class EventVM {
         mall: "Botani Square",
         descriptions: "deskripsi 1"),
     Event(
-        name: "Mandi Bola",
+        name: "Kepiting Saos Tiram",
         startDate: "1 Nov 2022",
         endDate: "1 Jan 2022",
         location: "Bogor",
@@ -20,7 +20,7 @@ class EventVM {
         mall: "AEON sentul",
         descriptions: "deskripsi 2"),
     Event(
-        name: "Bazaar furniture",
+        name: "Ayam Bakar",
         startDate: "10 Okt 2022",
         endDate: "24 Des 2022",
         location: "Bogor",
